@@ -1,8 +1,14 @@
 node_modules/
 .next/
 apps/web/.next/
+apps/admin/.next/
 dist/
 build/
 .env
 .env.local
 *.log
+*.bak*
+*.backup*
+infra/db/generated/
+.DS_Store
+Thumbs.db
