@@ -20,7 +20,7 @@ export default async function CheckoutPage({
           <a href="/r/positanos/menu" className="text-sm font-bold text-white/70 hover:text-white">← Back to menu</a>
           <div className="mt-8">
             <p className="text-xs font-black uppercase tracking-[0.28em] text-red-400">Checkout</p>
-            <h1 className="mt-2 text-5xl font-black tracking-tight md:text-7xl">Pickup order preview</h1>
+            <h1 className="mt-2 text-5xl font-black tracking-tight md:text-7xl">Checkout</h1>
             <p className="mt-4 max-w-2xl text-lg leading-8 text-white/75">
               Simple branded checkout, ready for pickup orders.
             </p>
@@ -40,8 +40,8 @@ export default async function CheckoutPage({
             ))}
           </div>
           <div className="mt-6 rounded-2xl border border-red-100 bg-red-50 p-4">
-            <p className="font-black text-red-700">Payment integration ready</p>
-            <p className="mt-1 text-sm leading-6 text-red-900/70">Stripe / Square can be connected later. Secure checkout can be connected when ready.</p>
+            <p className="font-black text-red-700">Secure checkout</p>
+            <p className="mt-1 text-sm leading-6 text-red-900/70"> </p>
           </div>
         </div>
 
@@ -61,7 +61,7 @@ export default async function CheckoutPage({
             <div className="flex justify-between text-lg"><span className="font-black">Total</span><strong>$14.35</strong></div>
           </div>
           <button className="mt-6 w-full rounded-full bg-red-600 px-6 py-4 font-black uppercase tracking-wide text-white shadow-xl hover:bg-red-700">
-            Place demo order
+            Place order
           </button>
         </div>
       </section>

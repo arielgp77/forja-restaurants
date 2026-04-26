@@ -3,16 +3,14 @@ import { HeroBanner } from "../../../components/public/HeroBanner";
 import { ProductHighlightCard } from "../../../components/public/ProductHighlightCard";
 import { PublicFooter } from "../../../components/public/PublicFooter";
 import { PublicHeader } from "../../../components/public/PublicHeader";
-import { SplashIntro } from "../../../components/public/SplashIntro";
 import { QuickInfoStrip } from "../../../components/public/QuickInfoStrip";
+import { SplashIntro } from "../../../components/public/SplashIntro";
 import { buildPublicHomeViewModelFromTenant } from "../../../lib/public-home/tenant-loader";
 
 export async function generateStaticParams() {
-  return [
-    { slug: "positanos" },
-    { slug: "demo-pizzeria" }
-  ];
+  return [{ slug: "positanos" }];
 }
+
 export default async function PublicHomePage({
   params,
 }: {
@@ -30,6 +28,7 @@ export default async function PublicHomePage({
       {slug === "positanos" ? (
         <SplashIntro logoUrl="/assets/positanos/logo.jpg" restaurantName={vm.restaurantName} />
       ) : null}
+
       <PublicHeader
         restaurantName={vm.restaurantName}
         menuHref={vm.ctaSecondaryHref}
@@ -49,11 +48,11 @@ export default async function PublicHomePage({
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="mb-6 flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-              Destacados
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-600">
+              Slice counter strategy
             </p>
             <h2 className="mt-2 text-3xl font-black tracking-tight text-neutral-950">
-              Lo primero que debe vender
+              What Positano&apos;s should sell first
             </h2>
           </div>
         </div>
@@ -73,8 +72,8 @@ export default async function PublicHomePage({
 
       <section className="mx-auto max-w-6xl px-4 pb-14">
         <div className="rounded-[2rem] border border-neutral-200 bg-white p-8 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-            Confianza
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-600">
+            Positioning
           </p>
           <h2 className="mt-2 text-3xl font-black tracking-tight text-neutral-950">
             {vm.storyTitle}
