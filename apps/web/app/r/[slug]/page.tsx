@@ -7,6 +7,12 @@ import { SplashIntro } from "../../../components/public/SplashIntro";
 import { QuickInfoStrip } from "../../../components/public/QuickInfoStrip";
 import { buildPublicHomeViewModelFromTenant } from "../../../lib/public-home/tenant-loader";
 
+export async function generateStaticParams() {
+  return [
+    { slug: "positanos" },
+    { slug: "demo-pizzeria" }
+  ];
+}
 export default async function PublicHomePage({
   params,
 }: {
