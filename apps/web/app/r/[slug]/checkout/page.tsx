@@ -19,10 +19,10 @@ export default async function CheckoutPage({
         <div className="relative mx-auto max-w-5xl px-5 py-12">
           <a href="/r/positanos/menu" className="text-sm font-bold text-white/70 hover:text-white">← Back to menu</a>
           <div className="mt-8">
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-red-400">Demo checkout</p>
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-red-400">Checkout</p>
             <h1 className="mt-2 text-5xl font-black tracking-tight md:text-7xl">Pickup order preview</h1>
             <p className="mt-4 max-w-2xl text-lg leading-8 text-white/75">
-              Simple branded checkout preview, ready for Stripe or Square after approval.
+              Simple branded checkout, ready for pickup orders.
             </p>
           </div>
         </div>
@@ -41,12 +41,12 @@ export default async function CheckoutPage({
           </div>
           <div className="mt-6 rounded-2xl border border-red-100 bg-red-50 p-4">
             <p className="font-black text-red-700">Payment integration ready</p>
-            <p className="mt-1 text-sm leading-6 text-red-900/70">Stripe / Square can be connected later. This is a sales demo flow.</p>
+            <p className="mt-1 text-sm leading-6 text-red-900/70">Stripe / Square can be connected later. Secure checkout can be connected when ready.</p>
           </div>
         </div>
 
         <div className="rounded-[2rem] border border-neutral-200 bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-black">Demo order</h2>
+          <h2 className="text-2xl font-black">Order summary</h2>
           <div className="mt-5 grid gap-4">
             {[["Thin Pepperoni Slice", "$4.50"], ["Deep Dish Slice", "$6.00"], ["Lemon Italian Ice", "$2.75"]].map(([name, price]) => (
               <div key={name} className="flex items-center justify-between border-b border-neutral-100 pb-3">

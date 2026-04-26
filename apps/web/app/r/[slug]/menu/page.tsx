@@ -121,7 +121,7 @@ export default async function MenuPage({
                     <p className="shrink-0 rounded-full bg-red-600 px-3 py-1 text-sm font-black text-white">{price}</p>
                   </div>
                   <button className="mt-4 w-full rounded-full bg-neutral-950 px-4 py-3 text-sm font-black uppercase tracking-wide text-white hover:bg-red-700">
-                    Add to demo order
+                    Add to order
                   </button>
                 </div>
               ))}
@@ -133,8 +133,8 @@ export default async function MenuPage({
       <div className="sticky bottom-0 border-t border-neutral-200 bg-white/95 px-5 py-4 shadow-2xl backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="font-black">Ready for pickup demo</p>
-            <p className="text-sm text-neutral-500">Payments can connect later. This flow is for visual selling now.</p>
+            <p className="font-black">Ready for pickup</p>
+            <p className="text-sm text-neutral-500">Fast pickup ordering, simple and clear.</p>
           </div>
           <a href="/r/positanos/checkout" className="rounded-full bg-red-600 px-6 py-3 text-center font-black text-white hover:bg-red-700">
             Continue to Checkout
