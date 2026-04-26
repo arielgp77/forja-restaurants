@@ -1,0 +1,15 @@
+{
+  "pending": [
+    {
+      "provider": "square",
+      "state": "818be61f-71ad-452d-8abd-e70c9be857ae",
+      "createdAt": "2026-04-22T12:18:36.575Z"
+    },
+    {
+      "provider": "stripe",
+      "state": "b09affed-79ff-4324-97ec-92032cabda52",
+      "createdAt": "2026-04-22T12:21:58.832Z"
+    }
+  ],
+  "connections": {}
+}

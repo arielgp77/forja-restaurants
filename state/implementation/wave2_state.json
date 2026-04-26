@@ -1,0 +1,70 @@
+﻿{
+    "version":  "1.0.0",
+    "wave_id":  "wave2",
+    "updated_at":  "2026-04-22T06:39:05",
+    "blocks":  [
+                   {
+                       "order":  1,
+                       "block_id":  "W2-B01",
+                       "name":  "Home pública",
+                       "status":  "done",
+                       "base_file":  "route_public_home_r_slug.md",
+                       "owner":  "web",
+                       "notes":  "Landing pública del restaurante"
+                   },
+                   {
+                       "order":  2,
+                       "block_id":  "W2-B02",
+                       "name":  "Menú",
+                       "status":  "done",
+                       "base_file":  "route_public_menu_r_slug_menu.md",
+                       "owner":  "web",
+                       "notes":  "Exploración y selección de productos"
+                   },
+                   {
+                       "order":  3,
+                       "block_id":  "W2-B03",
+                       "name":  "Checkout",
+                       "status":  "done",
+                       "base_file":  "route_public_checkout_r_slug_checkout.md",
+                       "owner":  "web",
+                       "notes":  "Formulario, quote y creación de draft"
+                   },
+                   {
+                       "order":  4,
+                       "block_id":  "W2-B04",
+                       "name":  "Payments encapsulados",
+                       "status":  "in_progress",
+                       "base_file":  "route_payments_checkout_module.md",
+                       "owner":  "payments",
+                       "notes":  "Solo vive en checkout y backend de pagos"
+                   },
+                   {
+                       "order":  5,
+                       "block_id":  "W2-B05",
+                       "name":  "Confirmation",
+                       "status":  "planned",
+                       "base_file":  "route_public_confirmation_order_confirmation_id.md",
+                       "owner":  "web",
+                       "notes":  "Postcompra inmediata"
+                   },
+                   {
+                       "order":  6,
+                       "block_id":  "W2-B06",
+                       "name":  "Tracking",
+                       "status":  "planned",
+                       "base_file":  "route_public_tracking_order_track_id.md",
+                       "owner":  "web",
+                       "notes":  "Seguimiento del pedido"
+                   },
+                   {
+                       "order":  7,
+                       "block_id":  "W2-B07",
+                       "name":  "Auth interno mínimo",
+                       "status":  "planned",
+                       "base_file":  "route_auth_internal_module.md",
+                       "owner":  "admin",
+                       "notes":  "Alineación mínima de login/logout/guards"
+                   }
+               ]
+}

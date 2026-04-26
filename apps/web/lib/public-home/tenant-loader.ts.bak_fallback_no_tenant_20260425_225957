@@ -1,0 +1,220 @@
+import "server-only";
+
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "../../../../infra/db/generated/client/client.ts";
+import type { PublicHomeViewModel, PublicHomeHighlight } from "./types";
+import { buildPublicHomeViewModel } from "./view-model";
+
+let prismaSingleton: PrismaClient | null | undefined;
+
+function getPrisma(): PrismaClient | null {
+  if (prismaSingleton !== undefined) {
+    return prismaSingleton;
+  }
+
+  const connectionString = process.env.DATABASE_URL;
+  if (!connectionString) {
+    prismaSingleton = null;
+    return prismaSingleton;
+  }
+
+  try {
+    const adapter = new PrismaPg({ connectionString });
+    prismaSingleton = new PrismaClient({ adapter });
+    return prismaSingleton;
+  } catch {
+    prismaSingleton = null;
+    return prismaSingleton;
+  }
+}
+
+function asMoneyLabel(raw: unknown): string | null {
+  if (raw == null) {
+    return null;
+  }
+
+  if (typeof raw === "number") {
+    if (raw > 1000) {
+      return "$" + (raw / 100).toFixed(2);
+    }
+    return "$" + raw.toFixed(2);
+  }
+
+  const num = Number(raw);
+  if (Number.isFinite(num)) {
+    if (num > 1000) {
+      return "$" + (num / 100).toFixed(2);
+    }
+    return "$" + num.toFixed(2);
+  }
+
+  return null;
+}
+
+function mapHighlight(item: any, index: number): PublicHomeHighlight {
+  const priceLabel =
+    asMoneyLabel(item?.priceCents) ??
+    asMoneyLabel(item?.basePriceCents) ??
+    asMoneyLabel(item?.price) ??
+    asMoneyLabel(item?.basePrice) ??
+    "$0.00";
+
+  return {
+    id: String(item?.id ?? index + 1),
+    name: String(item?.name ?? "Especial de la casa"),
+    description: String(
+      item?.description ??
+      item?.shortDescription ??
+      "Producto destacado del restaurante para impulsar conversión."
+    ),
+    priceLabel,
+    badge: index === 0 ? "Popular" : index === 1 ? "Combo" : "Nuevo",
+  };
+}
+
+function flattenMenuItems(restaurant: any): any[] {
+  const menus = Array.isArray(restaurant?.menus) ? restaurant.menus : [];
+  const categories = menus.flatMap((menu: any) =>
+    Array.isArray(menu?.categories) ? menu.categories : []
+  );
+  const items = categories.flatMap((category: any) =>
+    Array.isArray(category?.items) ? category.items : []
+  );
+
+  return items.slice(0, 3);
+}
+
+export async function buildPublicHomeViewModelFromTenant(
+  slug: string,
+): Promise<PublicHomeViewModel | null> {
+  const fallback = await buildPublicHomeViewModel(slug);
+  const prisma = getPrisma();
+
+  if (!prisma) {
+    return fallback;
+  }
+
+  try {
+    const tenant = await prisma.tenant.findUnique({
+      where: { slug },
+      include: {
+        restaurants: {
+          include: {
+            profile: true,
+            theme: true,
+            storySections: true,
+            menus: {
+              include: {
+                categories: {
+                  include: {
+                    items: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+
+    if (!tenant) {
+      return null;
+    }
+
+    const restaurant: any = Array.isArray((tenant as any).restaurants)
+      ? (tenant as any).restaurants[0]
+      : null;
+
+    const profile: any = restaurant?.profile ?? {};
+    const theme: any = restaurant?.theme ?? {};
+    const storySections: any[] = Array.isArray(restaurant?.storySections)
+      ? restaurant.storySections
+      : [];
+
+    const story = storySections[0] ?? {};
+    const highlights = flattenMenuItems(restaurant).map(mapHighlight);
+
+    const restaurantName = String(
+      profile?.displayName ??
+      profile?.name ??
+      restaurant?.name ??
+      fallback.restaurantName
+    );
+
+    const hours = String(
+      profile?.hoursText ??
+      restaurant?.hoursText ??
+      fallback.contact.hours
+    );
+
+    return {
+      ...fallback,
+      slug,
+      restaurantName,
+      tagline: String(
+        profile?.tagline ??
+        theme?.tagline ??
+        fallback.tagline
+      ),
+      heroTitle: String(
+        profile?.heroTitle ??
+        restaurantName + " listo para ordenar"
+      ),
+      heroDescription: String(
+        profile?.heroDescription ??
+        profile?.description ??
+        theme?.heroDescription ??
+        fallback.heroDescription
+      ),
+      heroImageUrl: String(
+        profile?.heroImageUrl ??
+        theme?.heroImageUrl ??
+        theme?.coverImageUrl ??
+        fallback.heroImageUrl
+      ),
+      ctaPrimaryHref: "/r/" + slug + "/menu",
+      ctaSecondaryHref: "/r/" + slug + "/menu",
+      info: [
+        { label: "Horario", value: hours },
+        {
+          label: "Pickup",
+          value: String(profile?.pickupLabel ?? "Disponible"),
+        },
+        {
+          label: "Curbside",
+          value: String(profile?.curbsideLabel ?? "Disponible"),
+        },
+        {
+          label: "Tiempo estimado",
+          value: String(profile?.etaText ?? "20–30 min"),
+        },
+      ],
+      highlights: highlights.length > 0 ? highlights : fallback.highlights,
+      storyTitle: String(
+        story?.title ??
+        fallback.storyTitle
+      ),
+      storyBody: String(
+        story?.body ??
+        story?.content ??
+        story?.text ??
+        fallback.storyBody
+      ),
+      contact: {
+        phone: String(
+          profile?.phone ??
+          restaurant?.phone ??
+          fallback.contact.phone
+        ),
+        address: String(
+          profile?.address ??
+          restaurant?.address ??
+          fallback.contact.address
+        ),
+        hours,
+      },
+    };
+  } catch {
+    return fallback;
+  }
+}

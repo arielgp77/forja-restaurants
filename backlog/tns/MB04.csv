@@ -1,0 +1,13 @@
+﻿tn_code,title,status,depends_on
+TN04.01,Ruta pública por slug,planned,MB02
+TN04.02,Hero reusable,planned,TN04.01
+TN04.03,Story block,planned,TN04.01
+TN04.04,Featured dishes block,planned,TN04.01
+TN04.05,Promo block,planned,TN04.01
+TN04.06,Gallery block,planned,TN04.01
+TN04.07,Hours contact block,planned,TN04.01
+TN04.08,CTA ordering block,planned,TN04.01
+TN04.09,Theme resolver,planned,TN04.01
+TN04.10,Preview responsive,planned,TN04.02|TN04.09
+TN04.11,Metadata SEO base,planned,TN04.01
+TN04.12,Publish toggle,planned,TN04.01

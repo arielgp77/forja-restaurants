@@ -1,0 +1,11 @@
+﻿tn_code,title,status,depends_on
+TN08.01,Stripe base,planned,MB06
+TN08.02,Create payment intent session,planned,TN08.01
+TN08.03,Webhook capture,planned,TN08.02
+TN08.04,Payment status persistence,planned,TN08.03
+TN08.05,Ledger por conceptos,planned,TN08.04
+TN08.06,Reconcile order payment,planned,TN08.04|TN08.05
+TN08.07,Refund manual,planned,TN08.06
+TN08.08,Error handling,planned,TN08.03
+TN08.09,Platform fee structure ready,planned,TN08.05
+TN08.10,Payout target structure ready,planned,TN08.05

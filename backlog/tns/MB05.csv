@@ -1,0 +1,13 @@
+﻿tn_code,title,status,depends_on
+TN05.01,CRUD categorías,planned,MB03|MB04
+TN05.02,CRUD items,planned,TN05.01
+TN05.03,CRUD modifier groups,planned,TN05.02
+TN05.04,CRUD modifier options,planned,TN05.03
+TN05.05,Toggle availability,planned,TN05.02
+TN05.06,Horarios service windows,planned,TN05.01
+TN05.07,Story editor,planned,MB04
+TN05.08,Branding editor,planned,MB04
+TN05.09,Media upload,planned,TN05.08
+TN05.10,Promos coupons CRUD,planned,TN05.01
+TN05.11,Módulos visibles on off,planned,TN05.07
+TN05.12,Preview interna,planned,TN05.07|TN05.08

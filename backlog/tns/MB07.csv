@@ -1,0 +1,13 @@
+﻿tn_code,title,status,depends_on
+TN07.01,Live orders board,planned,MB03|MB06
+TN07.02,Filtros por estado tipo,planned,TN07.01
+TN07.03,Order detail,planned,TN07.01
+TN07.04,State transitions,planned,TN07.03
+TN07.05,Kitchen view,planned,TN07.01
+TN07.06,Ready queue,planned,TN07.04
+TN07.07,Curbside queue,planned,TN07.04
+TN07.08,Print ticket view,planned,TN07.03
+TN07.09,Alertas mínimas,planned,TN07.01
+TN07.10,Close cancel order,planned,TN07.04
+TN07.11,Shift summary,planned,TN07.10
+TN07.12,Permisos kitchen manager,planned,TN07.01

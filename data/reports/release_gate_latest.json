@@ -1,0 +1,52 @@
+﻿[
+    {
+        "script":  "C:\\Users\\ariel\\LaForja\\forja-restaurants\\scripts\\forja_restaurants_healthcheck.ps1",
+        "status":  "ok",
+        "exit_code":  0
+    },
+    {
+        "script":  "C:\\Users\\ariel\\LaForja\\forja-restaurants\\scripts\\forja_restaurants_mb03_healthcheck.ps1",
+        "status":  "ok",
+        "exit_code":  0
+    },
+    {
+        "script":  "C:\\Users\\ariel\\LaForja\\forja-restaurants\\scripts\\forja_restaurants_mb04_healthcheck.ps1",
+        "status":  "ok",
+        "exit_code":  0
+    },
+    {
+        "script":  "C:\\Users\\ariel\\LaForja\\forja-restaurants\\scripts\\forja_restaurants_mb04_runcheck.ps1",
+        "status":  "ok",
+        "exit_code":  0
+    },
+    {
+        "script":  "C:\\Users\\ariel\\LaForja\\forja-restaurants\\scripts\\forja_restaurants_mb05_healthcheck.ps1",
+        "status":  "ok",
+        "exit_code":  0
+    },
+    {
+        "script":  "C:\\Users\\ariel\\LaForja\\forja-restaurants\\scripts\\forja_restaurants_mb08_healthcheck.ps1",
+        "status":  "ok",
+        "exit_code":  0
+    },
+    {
+        "script":  "C:\\Users\\ariel\\LaForja\\forja-restaurants\\scripts\\forja_restaurants_mb09_healthcheck.ps1",
+        "status":  "ok",
+        "exit_code":  0
+    },
+    {
+        "script":  "C:\\Users\\ariel\\LaForja\\forja-restaurants\\scripts\\forja_restaurants_mb10_healthcheck.ps1",
+        "status":  "ok",
+        "exit_code":  0
+    },
+    {
+        "script":  "C:\\Users\\ariel\\LaForja\\forja-restaurants\\scripts\\forja_restaurants_mb11_healthcheck.ps1",
+        "status":  "ok",
+        "exit_code":  0
+    },
+    {
+        "script":  "C:\\Users\\ariel\\LaForja\\forja-restaurants\\scripts\\forja_restaurants_mb12_healthcheck.ps1",
+        "status":  "ok",
+        "exit_code":  0
+    }
+]

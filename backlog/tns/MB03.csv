@@ -1,0 +1,11 @@
+﻿tn_code,title,status,depends_on
+TN03.01,Elegir provider auth,planned,MB02
+TN03.02,Login logout session,planned,TN03.01
+TN03.03,Invitación staff,planned,TN03.02
+TN03.04,Aceptar invitación,planned,TN03.03
+TN03.05,Matriz de permisos,planned,TN03.01
+TN03.06,Guards UI,planned,TN03.05
+TN03.07,Guards API,planned,TN03.05
+TN03.08,User management,planned,TN03.03
+TN03.09,Active inactive users,planned,TN03.08
+TN03.10,Audit log mínimo,planned,TN03.06|TN03.07

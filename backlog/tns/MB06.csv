@@ -1,0 +1,15 @@
+﻿tn_code,title,status,depends_on
+TN06.01,Cart state,planned,MB04|MB05
+TN06.02,Add item modifiers,planned,TN06.01
+TN06.03,Edit remove item,planned,TN06.01
+TN06.04,Pricing calculation,planned,TN06.02|TN06.03
+TN06.05,Pickup flow,planned,TN06.04
+TN06.06,Curbside flow base,planned,TN06.05
+TN06.07,Customer notes,planned,TN06.05
+TN06.08,Hours availability validation,planned,TN06.05
+TN06.09,Quote endpoint,planned,TN06.04
+TN06.10,Order draft,planned,TN06.09
+TN06.11,Place order,planned,TN06.10
+TN06.12,Confirmation page,planned,TN06.11
+TN06.13,Order history base,planned,TN06.11
+TN06.14,Pricing edge cases,planned,TN06.04|TN06.11

@@ -1,0 +1,40 @@
+{
+  "name": "forja-restaurants",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:web": "next dev ./apps/web --turbopack -p 3000",
+    "dev:admin": "next dev ./apps/admin --turbopack -p 3001",
+    "build:web": "next build ./apps/web",
+    "build:admin": "next build ./apps/admin",
+    "prisma:format": "prisma format",
+    "prisma:validate": "prisma validate",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:seed": "tsx infra/db/seeds/seed_demo.ts",
+    "db:smoke": "tsx scripts/db_smoke_probe.ts"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "7.7.0",
+    "@prisma/client": "7.7.0",
+    "@swc/helpers": "^0.5.21",
+    "dotenv": "^17.2.1",
+    "next": "^16.2.4",
+    "pg": "^8.16.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "server-only": "^0.0.1",
+    "stripe": "^22.0.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.4",
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "postcss": "^8.5.10",
+    "prisma": "7.7.0",
+    "tailwindcss": "^4.2.4",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}

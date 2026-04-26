@@ -1,0 +1,11 @@
+﻿tn_code,title,status,depends_on
+TN01.01,Definir propuesta de valor técnica,planned,
+TN01.02,Definir bounded contexts,planned,TN01.01
+TN01.03,Separar core vs premium vs SaaS futuro,planned,TN01.02
+TN01.04,Definir actores y roles del sistema,planned,TN01.01
+TN01.05,Definir journeys principales,planned,TN01.04
+TN01.06,Definir NFR mínimos,planned,TN01.02
+TN01.07,Cerrar stack técnico final,planned,TN01.06
+TN01.08,Definir estrategia multi-tenant,planned,TN01.02
+TN01.09,Definir estrategia de integraciones externas,planned,TN01.07
+TN01.10,Definir roadmap MVP vs post-MVP,planned,TN01.03|TN01.05|TN01.07

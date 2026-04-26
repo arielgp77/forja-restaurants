@@ -1,0 +1,13 @@
+﻿tn_code,title,status,depends_on
+TN09.01,Provider y config,planned,MB08
+TN09.02,Email templates,planned,TN09.01
+TN09.03,SMS templates,planned,TN09.01
+TN09.04,Inbound SMS webhook,planned,TN09.01
+TN09.05,Outbound SMS service,planned,TN09.01
+TN09.06,Keyword routing,planned,TN09.04|TN09.05
+TN09.07,Opt state HELP STOP,planned,TN09.04
+TN09.08,Logs mensajes,planned,TN09.04|TN09.05
+TN09.09,Curbside ya llegué,planned,TN09.06
+TN09.10,Ask car color spot model,planned,TN09.09
+TN09.11,Ready notification,planned,TN09.05
+TN09.12,Delay notification,planned,TN09.05

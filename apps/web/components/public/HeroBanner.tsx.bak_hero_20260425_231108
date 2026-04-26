@@ -1,0 +1,69 @@
+﻿import Link from "next/link";
+
+interface HeroBannerProps {
+  title: string;
+  description: string;
+  imageUrl: string;
+  primaryHref: string;
+  secondaryHref: string;
+}
+
+export function HeroBanner({
+  title,
+  description,
+  imageUrl,
+  primaryHref,
+  secondaryHref,
+}: HeroBannerProps) {
+  return (
+    <section className="relative overflow-hidden border-b border-black/5 bg-neutral-950 text-white">
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-30"
+        style={{ backgroundImage: `url("${imageUrl}")` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40" />
+
+      <div className="relative mx-auto grid min-h-[420px] max-w-6xl items-center gap-8 px-4 py-14 md:grid-cols-[1.2fr_0.8fr]">
+        <div className="max-w-2xl">
+          <p className="mb-3 inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-white/80">
+            Wave 2 · Home pública
+          </p>
+          <h1 className="text-4xl font-black tracking-tight text-white md:text-6xl">{title}</h1>
+          <p className="mt-4 max-w-xl text-base leading-7 text-white/80 md:text-lg">
+            {description}
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href={primaryHref}
+              className="rounded-full bg-white px-5 py-3 text-sm font-semibold text-neutral-900 transition hover:bg-neutral-100"
+            >
+              Ordenar ahora
+            </Link>
+            <Link
+              href={secondaryHref}
+              className="rounded-full border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              Ver menú
+            </Link>
+          </div>
+        </div>
+
+        <div className="rounded-3xl border border-white/10 bg-white/10 p-5 shadow-2xl backdrop-blur">
+          <div className="grid gap-3">
+            <div className="rounded-2xl bg-white/10 p-4">
+              <p className="text-xs uppercase tracking-[0.2em] text-white/60">Promesa</p>
+              <p className="mt-2 text-lg font-semibold">Bonita para vender. Clara para ordenar.</p>
+            </div>
+            <div className="rounded-2xl bg-white/10 p-4">
+              <p className="text-xs uppercase tracking-[0.2em] text-white/60">Meta</p>
+              <p className="mt-2 text-sm leading-6 text-white/80">
+                Que un restaurante vea esta pantalla y no piense “demo”, sino “sí la puedo usar”.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

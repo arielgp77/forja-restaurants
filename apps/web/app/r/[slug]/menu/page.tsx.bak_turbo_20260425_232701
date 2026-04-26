@@ -1,0 +1,18 @@
+﻿import { notFound } from "next/navigation";
+import { buildMenuPageViewModel } from "../../../../lib/menu/loader";
+import { MenuClientShell } from "../../../../components/menu/MenuClientShell";
+
+export default async function MenuPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const vm = await buildMenuPageViewModel(slug);
+
+  if (!vm) {
+    notFound();
+  }
+
+  return <MenuClientShell vm={vm} />;
+}

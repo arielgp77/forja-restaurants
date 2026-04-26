@@ -1,0 +1,11 @@
+﻿tn_code,title,status,depends_on
+TN12.01,Onboarding wizard interno,planned,MB05|MB06
+TN12.02,Checklist alta restaurante,planned,TN12.01
+TN12.03,Import menú simple,planned,TN12.01
+TN12.04,Publish flow,planned,TN12.01
+TN12.05,Plan feature matrix,planned,TN12.01
+TN12.06,Healthcheck básico,planned,MB08|MB09|MB10
+TN12.07,Backup export básico,planned,MB02
+TN12.08,QA pass MVP,planned,MB04|MB08|MB10
+TN12.09,Bug bash cierre,planned,TN12.08
+TN12.10,Demo tenant limpio,planned,TN12.04|TN12.09

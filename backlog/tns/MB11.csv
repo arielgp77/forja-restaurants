@@ -1,0 +1,11 @@
+﻿tn_code,title,status,depends_on
+TN11.01,Modelo condición acción,planned,MB02|MB06
+TN11.02,Engine evaluación simple,planned,TN11.01
+TN11.03,Feature flags tenant,planned,TN11.02
+TN11.04,Playbook pizza curbside,planned,TN11.02|MB09
+TN11.05,Playbook taco pickup,planned,TN11.02
+TN11.06,Playbook family takeout,planned,TN11.02
+TN11.07,Playbook lunch office order,planned,TN11.02
+TN11.08,Installer playbooks,planned,TN11.04|TN11.05|TN11.06
+TN11.09,UI simple reglas,planned,TN11.02
+TN11.10,Overrides restaurante,planned,TN11.09

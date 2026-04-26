@@ -1,0 +1,13 @@
+﻿tn_code,title,status,depends_on
+TN10.01,Definir fuentes KB,planned,MB05
+TN10.02,Build knowledge pack,planned,TN10.01
+TN10.03,Endpoint chat,planned,TN10.02
+TN10.04,Retrieval base,planned,TN10.02
+TN10.05,Intent parser,planned,TN10.03
+TN10.06,Order parser,planned,TN10.05
+TN10.07,Order confirmation flow,planned,TN10.06|MB06
+TN10.08,Ingredients allergens answers,planned,TN10.04
+TN10.09,Simple upsell,planned,TN10.04
+TN10.10,Fallback humano,planned,TN10.03
+TN10.11,AI logs,planned,TN10.03
+TN10.12,KB status panel,planned,TN10.02

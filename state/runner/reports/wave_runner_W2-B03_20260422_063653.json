@@ -1,0 +1,102 @@
+﻿{
+    "project":  "forja-restaurants",
+    "waveId":  "W2-B03",
+    "startedAt":  "2026-04-22T06:36:53.7541867-05:00",
+    "baseUrl":  "http://localhost:3000",
+    "port":  3000,
+    "success":  true,
+    "actions":  [
+                    {
+                        "step":  "stop-existing",
+                        "result":  {
+                                       "stopped":  true,
+                                       "pid":  63080
+                                   }
+                    },
+                    {
+                        "step":  "clean-caches",
+                        "removed":  "C:\\Users\\ariel\\LaForja\\forja-restaurants\\apps\\web\\.next"
+                    }
+                ],
+    "healthchecks":  [
+                         {
+                             "script":  "C:\\Users\\ariel\\LaForja\\forja-restaurants\\scripts\\forja_restaurants_w2_b03_healthcheck.ps1",
+                             "ok":  true,
+                             "exitCode":  0,
+                             "output":  "W2-B03 HEALTHCHECK OK"
+                         },
+                         {
+                             "script":  "C:\\Users\\ariel\\LaForja\\forja-restaurants\\scripts\\forja_restaurants_w2_b03_hydration_fix_healthcheck.ps1",
+                             "ok":  true,
+                             "exitCode":  0,
+                             "output":  "W2-B03 HYDRATION FIX HEALTHCHECK OK"
+                         }
+                     ],
+    "smokes":  [
+                   {
+                       "kind":  "route",
+                       "url":  "http://localhost:3000/r/demo-pizzeria/checkout",
+                       "ok":  true,
+                       "statusCode":  200,
+                       "expect":  "Checkout",
+                       "expectOk":  true,
+                       "healthy":  true,
+                       "allowLoose":  true
+                   },
+                   {
+                       "kind":  "api",
+                       "name":  "quote",
+                       "url":  "http://localhost:3000/api/checkout/quote",
+                       "ok":  true,
+                       "raw":  {
+                                   "ok":  true,
+                                   "subtotal":  33.47,
+                                   "tax":  2.68,
+                                   "fee":  0,
+                                   "tip":  5.02,
+                                   "total":  41.17,
+                                   "subtotalLabel":  "$33.47",
+                                   "taxLabel":  "$2.68",
+                                   "feeLabel":  "$0.00",
+                                   "tipLabel":  "$5.02",
+                                   "totalLabel":  "$41.17",
+                                   "etaMinutes":  20,
+                                   "etaLabel":  "20-30 min"
+                               }
+                   },
+                   {
+                       "kind":  "api",
+                       "name":  "place-order",
+                       "url":  "http://localhost:3000/api/checkout/place-order",
+                       "ok":  true,
+                       "raw":  {
+                                   "ok":  true,
+                                   "orderNumber":  "W2-818624",
+                                   "placedAt":  "2026-04-22T11:36:58.624Z",
+                                   "fulfillment":  "pickup",
+                                   "totalLabel":  "$41.17",
+                                   "etaLabel":  "20-30 min",
+                                   "nextStep":  "Tu orden fue colocada. Confirmation y tracking se conectan en los siguientes bloques."
+                               }
+                   }
+               ],
+    "blockers":  [
+
+                 ],
+    "warnings":  [
+                     "SECURITY WARNING: The SSL modes"
+                 ],
+    "server":  {
+                   "pid":  2756,
+                   "logPath":  "C:\\Users\\ariel\\LaForja\\forja-restaurants\\state\\runner\\logs\\web_dev_20260422_063653.log",
+                   "pidPath":  "C:\\Users\\ariel\\LaForja\\forja-restaurants\\state\\runner\\pids\\web_dev_20260422_063653.pid",
+                   "startedAt":  "2026-04-22T06:36:54.5024718-05:00",
+                   "wait":  {
+                                "ok":  true,
+                                "reason":  "PortListening",
+                                "pid":  68296
+                            }
+               },
+    "logTail":  "\r\n\u003e dev:web\r\n\u003e next dev ./apps/web --turbopack -p 3000\r\n\r\nΓû▓ Next.js 16.2.4 (Turbopack)\r\n- Local:         http://localhost:3000\r\n- Network:       http://10.0.0.227:3000\r\n- Environments: .env.local\r\nΓ£ô Ready in 240ms\r\n\r\nnode.exe : (node:68296) Warning: SECURITY WARNING: The SSL modes \u0027prefer\u0027, \u0027require\u0027, and \u0027verify-ca\u0027 are treated as \r\naliases for \u0027verify-full\u0027.\r\nEn línea: 1 Carácter: 1\r\n+ \u0026 \"C:\\Program Files\\nodejs/node.exe\" \"C:\\Program Files\\nodejs/node_mo ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: ((node:68296) Wa... \u0027verify-full\u0027.:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\nIn the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq \r\nsemantics, which have weaker security guarantees.\r\n\r\nTo prepare for this change:\r\n- If you want the current behavior, explicitly use \u0027sslmode=verify-full\u0027\r\n- If you want libpq compatibility now, use \u0027uselibpqcompat=true\u0026sslmode=require\u0027\r\n\r\nSee https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.\r\n(Use `node --trace-warnings ...` to show where the warning was created)\r\n GET /r/demo-pizzeria/checkout 200 in 2.2s (next.js: 1200ms, application-code: 978ms)\r\n POST /api/checkout/quote 200 in 145ms (next.js: 134ms, application-code: 11ms)\r\n POST /api/checkout/place-order 200 in 65ms (next.js: 61ms, application-code: 5ms)\r\n",
+    "endedAt":  "2026-04-22T06:36:58.6479073-05:00"
+}

@@ -1,0 +1,18 @@
+﻿import { notFound } from "next/navigation";
+import { buildCheckoutPageViewModel } from "../../../../lib/checkout/loader";
+import { CheckoutClientShell } from "../../../../components/checkout/CheckoutClientShell";
+
+export default async function CheckoutPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const vm = await buildCheckoutPageViewModel(slug);
+
+  if (!vm) {
+    notFound();
+  }
+
+  return <CheckoutClientShell vm={vm} />;
+}

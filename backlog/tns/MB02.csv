@@ -1,0 +1,19 @@
+﻿tn_code,title,status,depends_on
+TN02.01,Modelar Tenant,planned,MB01
+TN02.02,Modelar Restaurant,planned,TN02.01
+TN02.03,Modelar perfiles y branding,planned,TN02.02
+TN02.04,Modelar horarios y áreas de servicio,planned,TN02.02
+TN02.05,Modelar Menu,planned,TN02.02
+TN02.06,Modelar Modifiers,planned,TN02.05
+TN02.07,Modelar availability,planned,TN02.05
+TN02.08,Modelar Customer,planned,TN02.01
+TN02.09,Modelar Order,planned,TN02.05|TN02.08
+TN02.10,Modelar status history,planned,TN02.09
+TN02.11,Modelar Fulfillment,planned,TN02.09
+TN02.12,Modelar messaging,planned,TN02.08
+TN02.13,Modelar payments/ledger,planned,TN02.09
+TN02.14,Modelar promos/rules/playbooks,planned,TN02.02
+TN02.15,Crear schema Prisma,planned,TN02.01|TN02.14
+TN02.16,Crear migraciones,planned,TN02.15
+TN02.17,Crear seed demo,planned,TN02.16
+TN02.18,Documentar relaciones clave,planned,TN02.15

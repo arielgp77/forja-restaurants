@@ -1,0 +1,33 @@
+export function SplashIntro({
+  logoUrl,
+  restaurantName,
+}: {
+  logoUrl: string;
+  restaurantName: string;
+}) {
+  return (
+    <div className="pointer-events-none fixed inset-0 z-[9999] flex items-center justify-center bg-black animate-[splashFade_1.45s_ease-in-out_forwards]">
+      <div className="flex flex-col items-center gap-5 animate-[logoPop_1.15s_ease-out_forwards]">
+        <div className="rounded-full bg-white/95 p-5 shadow-2xl ring-4 ring-red-600/80">
+          <img src={logoUrl} alt={restaurantName} className="h-28 w-28 rounded-full object-contain" />
+        </div>
+        <div className="text-center">
+          <p className="text-xs font-black uppercase tracking-[0.35em] text-red-500">Pizza by the Slice</p>
+          <h1 className="mt-2 text-3xl font-black text-white">{restaurantName}</h1>
+        </div>
+      </div>
+      <style>{`
+        @keyframes splashFade {
+          0% { opacity: 1; visibility: visible; }
+          72% { opacity: 1; visibility: visible; }
+          100% { opacity: 0; visibility: hidden; }
+        }
+        @keyframes logoPop {
+          0% { transform: scale(.75) translateY(10px); opacity: 0; filter: blur(6px); }
+          55% { transform: scale(1.05) translateY(0); opacity: 1; filter: blur(0); }
+          100% { transform: scale(1) translateY(0); opacity: 1; filter: blur(0); }
+        }
+      `}</style>
+    </div>
+  );
+}
