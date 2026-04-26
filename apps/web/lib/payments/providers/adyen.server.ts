@@ -1,4 +1,4 @@
-﻿import { getAdyenConfig } from "../config";
+import { getAdyenConfig } from "../config";
 import {
   computeMinorTotal,
   type AdyenPreparedPayment,
@@ -59,7 +59,7 @@ export class AdyenPaymentAdapter implements PaymentProviderAdapter {
       amount,
       currency: input.currency,
       clientKey: cfg.clientKey,
-      environment: cfg.environment,
+      environment: (cfg.environment as 'test' | 'live'),
       session,
     };
   }
